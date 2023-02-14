@@ -3,9 +3,15 @@ import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 import { FiMail, FiLock } from "react-icons/fi"
 
+import { useAuth } from "../../hooks/auth";
+
 import { Link } from "react-router-dom"
 
 export function SignIn() {
+
+    const data = useAuth()
+    console.log("Meu Contexto =>", data)
+
     return (
         <Container>
             <Form>
@@ -22,8 +28,9 @@ export function SignIn() {
                     placeholder="Senha"
                     type="password"
                     icon={FiLock}
+                    autoComplete="on"
                 />
-                
+
                 <Button title="Entrar" />
 
                 <Link to="/register">Criar Conta</Link>
